@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .preloader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+        .ball {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            border-radius: 50%;
+            animation: bounce 0.5s cubic-bezier(0.5, 0.05, 0.8, 0.5) infinite alternate;
+        }
+        .ball:nth-child(1) { 
+            background-color: #3498db; 
+            animation-delay: -0.4s;
+        }
+        .ball:nth-child(2) { 
+            background-color: #e74c3c; 
+            animation-delay: -0.2s;
+        }
+        .ball:nth-child(3) { 
+            background-color: #2ecc71; 
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.querySelector('.preloader');
+
+    window.addEventListener('load', () => {
+        // Hide preloader when page fully loads
+        preloader.classList.add('hidden');
+
+        // Optional: Remove from DOM after transition
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+});
+    </script>
+</head>
+<body>
+    <div class="preloader">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+    <h1>Preloader Example</h1>
+    <img src="https://placehold.co/500x200" alt="placeholder Image">
+</body>
+</html>
